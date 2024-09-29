@@ -14,9 +14,7 @@ ssl_cert_issue() {
     if [[ "$confirm_choice" == "y" ]]; then
         cd ~
         echo "安装Acme脚本"
-        curl -O https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh
-        chmod +x ./acme.sh
-        ./acme.sh --install
+        curl https://get.acme.sh | sh
         if [ $? -ne 0 ]; then
             echo "安装acme脚本失败"
             exit 1
@@ -87,11 +85,4 @@ ssl_cert_issue() {
             ls -lah cert
             chmod 755 $certPath
         fi
-    else
-        echo "操作取消，返回菜单..."
-        # 如果没有菜单函数，您可以直接删除此行
-        # show_menu
-    fi
 }
-
-ssl_cert_issue
