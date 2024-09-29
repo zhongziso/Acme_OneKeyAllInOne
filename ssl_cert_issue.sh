@@ -85,4 +85,5 @@ ssl_cert_issue() {
             ls -lah cert
             chmod 755 $certPath
         fi
+    fi
 }
