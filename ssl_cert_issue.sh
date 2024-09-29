@@ -14,7 +14,9 @@ ssl_cert_issue() {
     if [[ "$confirm_choice" == "y" ]]; then
         cd ~
         echo "安装Acme脚本"
-        curl https://get.acme.sh | sh
+        curl -O https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh
+        chmod +x ./acme.sh
+        ./acme.sh --install
         if [ $? -ne 0 ]; then
             echo "安装acme脚本失败"
             exit 1
