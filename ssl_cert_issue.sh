@@ -87,3 +87,4 @@ ssl_cert_issue() {
         fi
     fi
 }
+ssl_cert_issue
